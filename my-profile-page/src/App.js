@@ -4,6 +4,8 @@ import test_img from './test-img.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { setStyle } from 'framer-motion';
+import { useState } from 'react';
 
 // function App() {
 //   return (
@@ -38,6 +40,27 @@ function CreateProjectCard({proj_img, proj_img_alt, proj_title, proj_desc, proj_
 }
 
 function App() {
+
+  const [btnStyleWork, setBtnStyleWork] = useState("btn-selected");
+  const [btnStyleEducation, setBtnStyleEducation] = useState("btn-deselected");
+  const [ulStyleWork, setUlStyleWork] = useState("show-history");
+  const [ulStyleEducation, setUlStyleEducation] = useState("hide-history");
+
+
+  const workEducationSelector = (event) => {
+
+    if (btnStyleWork==="btn-selected") setBtnStyleWork("btn-deselected");
+    else setBtnStyleWork("btn-selected")
+    if (btnStyleEducation==="btn-selected") setBtnStyleEducation("btn-deselected");
+    else setBtnStyleEducation("btn-selected")
+
+    if (ulStyleWork==="show-history") setUlStyleWork("hide-history");
+    else setUlStyleWork("show-history")
+    if (ulStyleEducation==="show-history") setUlStyleEducation("hide-history");
+    else setUlStyleEducation("show-history")
+
+  }
+
   return (
     <div id='portfolio'>
       <header>
@@ -51,19 +74,94 @@ function App() {
             <p id="intro-ds">Former data Scientist 4+ years</p>
             <p id="intro-phd">PhD Mathematics</p>
             <div id="intro-socials">
-              <button id="cv-button">CV</button>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faDownload} /></a>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faGithub} /></a>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faLinkedin} /></a>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
-              <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
+              <button id="cv-button">CV <a className='intro-social-link' target='_blank' rel="noreferrer">< FontAwesomeIcon icon={faDownload} /></a></button>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faGithub} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faLinkedin} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
             </div>
           </div>
           <img id="intro-img" src={test_img} width='50px'></img>
         </div>
-        <div id='project-list'>
 
+        <div id="work-education">
+          <div id="work-education-btns">
+            <button className={btnStyleWork} onClick={workEducationSelector} id="btn-work">Work</button>
+            <button className={btnStyleEducation} onClick={workEducationSelector} id="btn-education">Education</button>
+          </div>
+          <div id="work-education-history">
+            <ul id="work-history" class={ulStyleWork}>
+
+              <li class="li-work-history">
+                <a><img src={test_img} width='70px' height='70px'></img></a>
+                <div>
+                  <div>Data Scientist</div>
+                  <div>Fonterra &middot; Full-time</div>
+                  <div>Sept 2023 - Jan 2025 &middot; 1 yr 5 mos</div>
+                  <div>Auckland, New Zealand</div>
+                  <ul>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                  </ul>
+                </div>
+              </li>
+              
+              <li class="li-work-history">
+                <a><img src={test_img} width='70px' height='70px'></img></a>
+                <div>
+                  <div>Data Engineer</div>
+                  <div>Luma Analytics &middot; Full-time</div>
+                  <div>Feb 2022 - Sep 2023 &middot; 1 yr 8 mos</div>
+                  <div>Auckland, New Zealand</div>
+                  <ul>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="li-work-history">
+                <a><img src={test_img} width='70px' height='70px'></img></a>
+                <div>
+                  <div>Mathematical Research Scientist</div>
+                  <div>Market Economics &middot; Full-time</div>
+                  <div>Jan 2020 - Jan 2022 &middot; 2 yrs 1 mo</div>
+                  <div>Auckland, New Zealand</div>
+                  <ul>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                  </ul>
+                </div>
+              </li>
+
+
+
+            </ul>
+
+            <ul id="education-history" class={ulStyleEducation}>
+
+              <li class="li-work-history">
+                <a><img src={test_img} width='70px' height='70px'></img></a>
+                <div>
+                  <div>Oct 2025 - Sept 2023</div>
+                  <h1>EPITA</h1>
+                  <div>MSc</div>
+                  <ul>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div id='project-list'>
           <CreateProjectCard
             proj_img={test_img}
             proj_img_alt={'Goodbye'}
