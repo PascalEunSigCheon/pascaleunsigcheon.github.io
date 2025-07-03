@@ -59,6 +59,8 @@ function App() {
     if (ulStyleEducation==="show-history") setUlStyleEducation("hide-history");
     else setUlStyleEducation("show-history")
 
+    console.log({ulStyleWork})
+
   }
 
   return (
@@ -89,17 +91,19 @@ function App() {
             <button className={btnStyleWork} onClick={workEducationSelector} id="btn-work">Work</button>
             <button className={btnStyleEducation} onClick={workEducationSelector} id="btn-education">Education</button>
           </div>
-          <div id="work-education-history">
-            <ul id="work-history" class={ulStyleWork}>
 
-              <li class="li-work-history">
-                <a><img src={test_img} width='70px' height='70px'></img></a>
-                <div>
-                  <div>Data Scientist</div>
-                  <div>Fonterra &middot; Full-time</div>
-                  <div>Sept 2023 - Jan 2025 &middot; 1 yr 5 mos</div>
-                  <div>Auckland, New Zealand</div>
-                  <ul>
+          <div id="work-education-history">
+            {/* <ul id="work-history" className={ulStyleWork}> */}
+            <ul className={ulStyleWork}>
+
+              <li className="li-work-history">
+                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <div className='work-history-info'>
+                  <div className="work-history-title">Data Scientist</div>
+                  <div className='work-history-company'>Fonterra &middot; Full-time</div>
+                  <div className='work-history-period'>Sept 2023 - Jan 2025 &middot; 1 yr 5 mos</div>
+                  <div className='work-history-location'>Auckland, New Zealand</div>
+                  <ul className='work-history-description'>
                     <li>I did this</li>
                     <li>I did this</li>
                     <li>I did this</li>
@@ -107,7 +111,7 @@ function App() {
                 </div>
               </li>
               
-              <li class="li-work-history">
+              <li className="li-work-history">
                 <a><img src={test_img} width='70px' height='70px'></img></a>
                 <div>
                   <div>Data Engineer</div>
@@ -122,7 +126,7 @@ function App() {
                 </div>
               </li>
 
-              <li class="li-work-history">
+              <li className="li-work-history">
                 <a><img src={test_img} width='70px' height='70px'></img></a>
                 <div>
                   <div>Mathematical Research Scientist</div>
@@ -141,9 +145,25 @@ function App() {
 
             </ul>
 
-            <ul id="education-history" class={ulStyleEducation}>
+            <ul id="education-history" className={ulStyleEducation}>
 
-              <li class="li-work-history">
+              <li className="li-education-history">
+                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <div className='education-history-info'>
+                  <div className="education-history-university">University of Auckland</div>
+                  <div className='education-history-programme'>Doctor of Philosophy &middot; Mathematics</div>
+                  <div className='education-history-period'>Sept 2023 - Jan 2025 &middot; 1 yr 5 mos</div>
+                  <div className='education-history-location'>Auckland, New Zealand</div>
+                  <ul className='education-history-description'>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                    <li>I did this</li>
+                  </ul>
+                </div>
+              </li>
+              
+
+              <li className="li-work-history">
                 <a><img src={test_img} width='70px' height='70px'></img></a>
                 <div>
                   <div>Oct 2025 - Sept 2023</div>

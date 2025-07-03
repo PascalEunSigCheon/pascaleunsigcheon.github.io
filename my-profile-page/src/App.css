@@ -45,10 +45,9 @@ main {
 #intro-block {
   color: whitesmoke;
   display: flex;
-  gap: 15%;
   margin: 5vh 0;
-  width: 100%;
-  justify-content: center;
+  width: 60%;
+  justify-content: space-between;
 }
 
 #intro-img {
@@ -104,7 +103,7 @@ main {
 }
 
 #work-education {
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,12 +112,14 @@ main {
 
 #work-education-btns {
   border: 1px solid grey;
-  width: 75%;
+  width: 100%;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
   background-color: grey;
+  border-radius: 10px;
 }
 
 .btn-selected {
@@ -129,35 +130,77 @@ main {
   background-color: grey;
 }
 
-#btn-work {
+#btn-work, #btn-education {
   width: 50%;
+  height: 100%;
   border: none;
-}
-
-#btn-education {
-  width: 50%;
-  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 #work-education-history {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
   background-color: var(--dark-bg);
   color: whitesmoke;
   border: 1px solid grey;
-  width: 75%;
+  width: 100%;
+  font-size: 1rem;
 }
 
-.li-work-history {
+#work-history {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.show-history {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .hide-history {
   display: none;
 }
 
-.show-history {
-  display: block;
+.li-work-history, .li-education-history {
+  display: flex;
+  gap: 40px;
 }
 
+.work-history-info, .education-history-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.work-history-img {
+  width: 70px;
+}
+
+.work-history-title, .education-history-university {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.work-history-period, .education-history-period {
+  color: grey;
+}
+
+.work-history-location, .education-history-location {
+  color: grey;
+}
+
+.work-history-description, .education-history-description {
+  margin-top: 10px;
+  list-style-type: disc;
+}
+
+.work-history-description li, .education-history-description li {
+  list-style-position: inside;
+}
 
 .project {
   background-color: var(--proj-bg);
