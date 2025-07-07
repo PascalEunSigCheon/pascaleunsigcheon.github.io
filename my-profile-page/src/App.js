@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import test_img from './test-img.jpg'
+import photo from './photo.jpg'
+import resume from './resume_pascal_cheon.pdf'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { setStyle } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // function App() {
 //   return (
@@ -45,6 +47,20 @@ function App() {
   const [btnStyleEducation, setBtnStyleEducation] = useState("btn-deselected");
   const [ulStyleWork, setUlStyleWork] = useState("show-history");
   const [ulStyleEducation, setUlStyleEducation] = useState("hide-history");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = 5; // px from bottom
+      const scrolledToBottom =
+        window.scrollY >= document.body.offsetHeight - window.innerHeight - threshold;
+      setScrolled(scrolledToBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
 
   const workEducationSelector = (event) => {
@@ -58,8 +74,6 @@ function App() {
     else setUlStyleWork("show-history")
     if (ulStyleEducation==="show-history") setUlStyleEducation("hide-history");
     else setUlStyleEducation("show-history")
-
-    console.log({ulStyleWork})
 
   }
 
@@ -81,14 +95,14 @@ function App() {
             <p id="intro-ds">Former data Scientist 4+ years</p>
             <p id="intro-phd">PhD Mathematics</p>
             <div id="intro-socials">
-              <button id="cv-button">CV <a className='intro-social-link' target='_blank' rel="noreferrer">< FontAwesomeIcon icon={faDownload} /></a></button>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faGithub} /></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faLinkedin} /></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
+              <a className='intro-social-link' target='_blank' href={resume}><button id="cv-button">CV < FontAwesomeIcon icon={faDownload} /></button></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/pascal-cheon/">< FontAwesomeIcon icon={faLinkedin} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://github.com/PascalEunSigCheon'>< FontAwesomeIcon icon={faGithub} /></a>
+              <a className='intro-social-link' target='_blank' rel="noopener noreferrer" title="Email" href='mailto:pascal.cheon@protonmail.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.youtube.com/@pascal_esc'>< FontAwesomeIcon icon={faYoutube} /></a>
             </div>
           </div>
-          <img id="intro-img" src={test_img} width='50px'></img>
+          <img id="intro-img" src={photo} width='50px'></img>
         </div>
 
         <div id="work-education">
@@ -123,9 +137,9 @@ function App() {
                   <div className='work-history-period'>Feb 2022 - Sep 2023 &middot; 1 yr 8 mos</div>
                   <div className='work-history-location'>Auckland, New Zealand</div>
                   <ul className='work-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                    <li>I did this</li>
+                    <li>Developed robust and scalable ETL Data Factory pipelines and Databricks scripts to ingest nation wide streaming data to build several business‑critical tables. Some tables accumulated over 1M rows daily. The output allowed the stakeholder to make data‑informed decisions effectively.</li>
+                    <li>Developed efficient ETL Databricks scripts to migrate business‑critical tables from SQL DB and blob storage to Azure Data Lake and Synapse Analytics for NZ’s largest media company. This allowed the stakeholder to shift to a state of data maturity aligned with their technology goals.</li>
+                    <li>Led a team to standardise the naming convention across 30+ tables and updated all their 10+ data products for the stakeholder, improving data consistency and usability.</li>
                   </ul>
                 </div>
               </li>
@@ -138,9 +152,8 @@ function App() {
                   <div className='work-history-period'>Jan 2020 - Jan 2022 &middot; 2 yr 1 mos</div>
                   <div className='work-history-location'>Auckland, New Zealand</div>
                   <ul className='work-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                    <li>I did this</li>
+                    <li>Developed an integrated nested Laplace approximation (INLA) model to predict wildfire behaviours in R. The output has been published in a peer‑reviewed journal.</li>
+                    <li>Developed regression models to predict regional economic activities in NZ. The output helped the regional council in making future decisions.</li>
                   </ul>
                 </div>
               </li>
@@ -156,10 +169,10 @@ function App() {
                   <div className='education-history-programme'>Master of Computer Science &middot; Software Engineering</div>
                   <div className='education-history-period'>Feb 2025 - Present</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
-                  <ul className='education-history-description'>
+                  {/* <ul className='education-history-description'>
                     <li>I did this</li>
                     <li>I did this</li>
-                  </ul>
+                  </ul> */}
                 </div>
               </li>
               
@@ -171,9 +184,7 @@ function App() {
                   <div className='education-history-period'>2016 - 2019</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
                   <ul className='education-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                    <li>I did this</li>
+                    <li>Thesis title: "Approximation and modelling errors in nonstationary inverse problems with an application to process tomography"</li>
                   </ul>
                 </div>
               </li>
@@ -186,9 +197,8 @@ function App() {
                   <div className='education-history-period'>2015 - 2016</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
                   <ul className='education-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                    <li>I did this</li>
+                    <li>A+ average (9.0/9.0 GPA)</li>
+                    <li>First in Course Awards in all courses.</li>
                   </ul>
                 </div>
               </li>
@@ -200,11 +210,11 @@ function App() {
                   <div className='education-history-programme'>Bachelor of Science &middot; Applied Mathematics, Physics</div>
                   <div className='education-history-period'>2012 - 2015</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
-                  <ul className='education-history-description'>
+                  {/* <ul className='education-history-description'>
                     <li>I did this</li>
                     <li>I did this</li>
                     <li>I did this</li>
-                  </ul>
+                  </ul> */}
                 </div>
               </li>
 
@@ -261,10 +271,11 @@ function App() {
         </div>
 
       </main>
-      <footer>
-        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
+      <footer className={scrolled ? 'footer-class-scrolled' : 'footer-class'}>
         <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faLinkedin} /></a>
         <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faGithub} /></a>
+        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
+        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
       </footer>
     </div>
   );

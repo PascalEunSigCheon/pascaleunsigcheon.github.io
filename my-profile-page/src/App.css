@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+html {
+  overscroll-behavior: auto;
+  background-color: var(--dark-bg);
+}
+
 #portfolio {
 
   background-size: 40px 40px;
@@ -202,7 +207,7 @@ main {
 }
 
 .work-history-description li, .education-history-description li {
-  /* list-style-position: inside; */
+  margin-top: 0.2rem;
 }
 
 #project-section {
@@ -268,7 +273,15 @@ footer {
   font-size: 30px;
   position: sticky;
   bottom: 0;
-  opacity: 0.85;
+  background-color: var(--dark-bg);
+}
+
+.footer-class {
+  opacity: 0.70;
+}
+
+.footer-class-scrolled {
+  opacity: 1;
 }
 
 .footer-link {
