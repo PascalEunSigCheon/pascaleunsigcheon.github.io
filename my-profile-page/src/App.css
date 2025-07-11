@@ -17,10 +17,27 @@ html {
   background-color: var(--dark-bg);
 }
 
+/* For colour themes */
+#portfolio {
+  --bg: rgb(10, 5, 23);
+}
+
+#portfolio.light {
+  --bg: white;
+}
+
+.blue-button {
+  background-color: blue;
+}
+
+.yellow-button {
+  background-color: yellow;
+}
+
 #portfolio {
 
   background-size: 40px 40px;
-  background-color: var(--dark-bg);
+  background-color: var(--bg);
   background-image: linear-gradient(to right, rgba(243, 245, 175, 0.12) 2px, transparent 1px),
   linear-gradient(to bottom, rgba(243, 245, 175, 0.12) 2px, transparent 1px);
 
@@ -100,17 +117,22 @@ main {
   background-color: var(--dark-bg);
   font-size: 1rem;
   color: whitesmoke;
-  border: 1px solid whitesmoke;
+  border: 1px solid hsl(217.9 10.6% 64.9%);
   border-radius: 10px;
   width: 60px;
   height: 30px;
 }
 
 #cv-button:hover {
+  background-color: hsl(217.9 10.6% 64.9%);
   cursor: pointer;
 }
 
 .intro-social-link {
+  color: hsl(217.9 10.6% 64.9%);
+}
+
+.intro-social-link:hover {
   color: whitesmoke;
 }
 
@@ -182,7 +204,7 @@ main {
   gap: 4px;
 }
 
-.work-history-img {
+.work-history-img, .education-history-img {
   width: 70px;
 }
 
@@ -229,7 +251,7 @@ main {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 
 #project-list {
@@ -246,6 +268,7 @@ main {
   height: 350px;
   object-fit: cover;
   border-radius: 10px;
+  object-position: bottom left;
 }
 
 .project-title {

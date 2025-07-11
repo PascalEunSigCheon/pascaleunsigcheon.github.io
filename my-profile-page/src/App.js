@@ -1,42 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import test_img from './test-img.jpg'
 import photo from './photo.jpg'
-import resume from './resume_pascal_cheon.pdf'
+import resume from './assets/resume.pdf'
+import uoa from './assets/uoa.png'
+import epita from './assets/epita.png'
+import fonterra from './assets/fonterra.png'
+import luma from './assets/luma.png'
+import market_economics from './assets/market-economics.png'
+import chat_bubble from './assets/chat-bubble.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { setStyle } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 function CreateProjectCard({proj_img, proj_img_alt, proj_title, proj_desc, proj_link}) {
   return(
     <div className='project'>
       <a href={proj_link} target="_blank" rel="noreferrer"><img className='project-img' src={proj_img} alt={proj_img_alt} width='80px'></img></a>
-      <h3 className='project-title'>{proj_title}</h3>
+      <a href={proj_link} target="_blank" rel="noreferrer"><h3 className='project-title'>{proj_title}</h3></a>
       <p className='project-description'>{proj_desc}</p>
-      <a className='project-link' target="_blank" rel="noreferrer" href={proj_link}>View project &gt;</a>
     </div>
   )
 }
@@ -48,6 +29,7 @@ function App() {
   const [ulStyleWork, setUlStyleWork] = useState("show-history");
   const [ulStyleEducation, setUlStyleEducation] = useState("hide-history");
   const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +43,14 @@ function App() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isDark) {
+      document.getElementById('portfolio').classList.remove('light');
+    } else {
+      document.getElementById('portfolio').classList.add('light');
+    }
+  }, [isDark]);
 
 
   const workEducationSelector = (event) => {
@@ -78,13 +68,16 @@ function App() {
   }
 
   return (
-    <div id='portfolio'>
+    <div id='portfolio' >
       <header>
         <div id='header-div'>
           <div id='header-left'>
             <h1>Pascal Eun Sig Cheon</h1>
           </div>
-          <div id='header-right'></div> 
+          <div id='header-right'>
+            {/* <button className={isDark ? 'show-button' : 'hide-button'}>dark mode</button> */}
+            <button onClick={() => setIsDark(!isDark)} className={isDark ? 'blue-button' : 'yellow-button'}>change mode</button>
+          </div> 
         </div>
       </header>
       <main>
@@ -95,14 +88,14 @@ function App() {
             <p id="intro-ds">Former data Scientist 4+ years</p>
             <p id="intro-phd">PhD Mathematics</p>
             <div id="intro-socials">
-              <a className='intro-social-link' target='_blank' href={resume}><button id="cv-button">CV < FontAwesomeIcon icon={faDownload} /></button></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href={resume}><button id="cv-button">CV < FontAwesomeIcon icon={faDownload} /></button></a>
               <a className='intro-social-link' target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/pascal-cheon/">< FontAwesomeIcon icon={faLinkedin} /></a>
               <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://github.com/PascalEunSigCheon'>< FontAwesomeIcon icon={faGithub} /></a>
               <a className='intro-social-link' target='_blank' rel="noopener noreferrer" title="Email" href='mailto:pascal.cheon@protonmail.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
               <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.youtube.com/@pascal_esc'>< FontAwesomeIcon icon={faYoutube} /></a>
             </div>
           </div>
-          <img id="intro-img" src={photo} width='50px'></img>
+          <img id="intro-img" src={photo} alt="myself" width='50px'></img>
         </div>
 
         <div id="work-education">
@@ -115,7 +108,7 @@ function App() {
             <ul className={ulStyleWork}>
 
               <li className="li-work-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.fonterra.com/nz/en.html"><img className="work-history-img" src={fonterra} alt="fonterra logo"></img></a>
                 <div className='work-history-info'>
                   <div className="work-history-title">Data Scientist</div>
                   <div className='work-history-company'>Fonterra &middot; Full-time</div>
@@ -130,7 +123,7 @@ function App() {
               </li>
 
               <li className="li-work-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.lumaanalytics.com/"><img className="work-history-img" src={luma} alt="luma analytics logo"></img></a>
                 <div className='work-history-info'>
                   <div className="work-history-title">Data Engineer</div>
                   <div className='work-history-company'>Luma Analytics &middot; Full-time</div>
@@ -145,7 +138,7 @@ function App() {
               </li>
 
               <li className="li-work-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.me.co.nz/"><img className="work-history-img" src={market_economics} alt="market economics logo"></img></a>
                 <div className='work-history-info'>
                   <div className="work-history-title">Mathematical Research Scientist</div>
                   <div className='work-history-company'>Market Economics &middot; Full-time</div>
@@ -163,21 +156,17 @@ function App() {
             <ul id="education-history" className={ulStyleEducation}>
 
               <li className="li-education-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.epita.fr/"><img className="education-history-img" src={epita} alt="epita logo"></img></a>
                 <div className='education-history-info'>
                   <div className="education-history-university">EPITA</div>
                   <div className='education-history-programme'>Master of Computer Science &middot; Software Engineering</div>
                   <div className='education-history-period'>Feb 2025 - Present</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
-                  {/* <ul className='education-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                  </ul> */}
                 </div>
               </li>
               
               <li className="li-education-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.auckland.ac.nz/en.html"><img className="education-history-img" src={uoa} alt="auckland uni logo"></img></a>
                 <div className='education-history-info'>
                   <div className="education-history-university">University of Auckland</div>
                   <div className='education-history-programme'>Doctor of Philosophy &middot; Mathematics</div>
@@ -190,7 +179,7 @@ function App() {
               </li>
               
               <li className="li-education-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.auckland.ac.nz/en.html"><img className="education-history-img" src={uoa} alt="auckland uni logo"></img></a>
                 <div className='education-history-info'>
                   <div className="education-history-university">University of Auckland</div>
                   <div className='education-history-programme'>Bachelor of Science Honours &middot; Applied Mathematics</div>
@@ -204,17 +193,12 @@ function App() {
               </li>
               
               <li className="li-education-history">
-                <a target='_blank' rel="noreferrer" href="https://www.google.com"><img className="work-history-img" src={test_img} ></img></a>
+                <a target='_blank' rel="noreferrer" href="https://www.auckland.ac.nz/en.html"><img className="education-history-img" src={uoa} alt="auckland uni logo"></img></a>
                 <div className='education-history-info'>
                   <div className="education-history-university">University of Auckland</div>
                   <div className='education-history-programme'>Bachelor of Science &middot; Applied Mathematics, Physics</div>
                   <div className='education-history-period'>2012 - 2015</div>
                   <div className='education-history-location'>Auckland, New Zealand</div>
-                  {/* <ul className='education-history-description'>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                    <li>I did this</li>
-                  </ul> */}
                 </div>
               </li>
 
@@ -228,45 +212,37 @@ function App() {
 
           <div id='project-list'>
             <CreateProjectCard
+              proj_img={chat_bubble}
+              proj_img_alt={'Goodbye'}
+              proj_title={'Chat Bubble'}
+              proj_desc={'custom chat bubbles on green screen for videos'}
+              proj_link={'https://pascaleunsigcheon.github.io/chat-bubble/'}
+            />
+            
+            {/* <CreateProjectCard
+              proj_img={test_img}
+              proj_img_alt={'Goodbye'}
+              proj_title={'some title'}
+              proj_desc={'some description.'}
+              proj_link={'https://www.google.com'}
+            /> */}
+            
+            {/* <CreateProjectCard
+              proj_img={test_img}
+              proj_img_alt={'Goodbye'}
+              proj_title={'some title'}
+              proj_desc={'some description.'}
+              proj_link={'https://www.google.com'}
+            /> */}
+
+            {/* <CreateProjectCard
               proj_img={test_img}
               proj_img_alt={'Goodbye'}
               proj_title={'some title'}
               proj_desc={'some description.'}
               proj_link={'https://www.google.com'}
             />
-            
-            <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            />
-            
-            <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            />
-            
-            <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            />
-            
-            <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            />
-            
+             */}
           </div>
         </div>
 
