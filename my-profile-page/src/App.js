@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 
 function CreateProjectCard({proj_img, proj_img_alt, proj_title, proj_desc, proj_link}) {
   return(
-    <div className='project'>
+    <div className='project shadow'>
       <a href={proj_link} target="_blank" rel="noreferrer"><img className='project-img' src={proj_img} alt={proj_img_alt} width='80px'></img></a>
       <a href={proj_link} target="_blank" rel="noreferrer"><h3 className='project-title'>{proj_title}</h3></a>
       <p className='project-description'>{proj_desc}</p>
@@ -104,7 +104,7 @@ function App() {
             <button className={btnStyleEducation} onClick={workEducationSelector} id="btn-education">Education</button>
           </div>
 
-          <div id="work-education-history">
+          <div id="work-education-history" className="shadow">
             <ul className={ulStyleWork}>
 
               <li className="li-work-history">
@@ -215,7 +215,7 @@ function App() {
               proj_img={chat_bubble}
               proj_img_alt={'Goodbye'}
               proj_title={'Chat Bubble'}
-              proj_desc={'custom chat bubbles on green screen for videos'}
+              proj_desc={'Custom chat bubbles on green screen for videos'}
               proj_link={'https://pascaleunsigcheon.github.io/chat-bubble/'}
             />
             

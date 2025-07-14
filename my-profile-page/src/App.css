@@ -1,11 +1,3 @@
-:root {
-  --dark-bg: rgb(10, 5, 23);
-  --border-color: #0084ff;
-  --primary: #0084ff;
-  --secondary: #f5d7af;
-  --proj-bg: rgba(20, 20, 20, 0.9);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -14,32 +6,41 @@
 
 html {
   overscroll-behavior: auto;
-  background-color: var(--dark-bg);
+  background-color: var(-bg);
 }
 
 /* For colour themes */
 #portfolio {
-  --bg: rgb(10, 5, 23);
+  --bg: hsl(224 71.4% 4.1%);
+  --bg-stripes: rgba(243, 245, 175, 0.12);
+  --border: grey;
+  --fg-text: hsl(210 20% 98%);
+  --fg-text-muted: hsl(217.9 10.6% 64.9%);
+  --btn-seleted-txt: hsl(224 71.4% 4.1%);
+  --btn-deseleted-txt: hsl(217.9 10.6% 64.9%);
+  --card: hsl(224 71.4% 4.1%);
+  --work-education-button-selected: hsl(210 20% 98%);
 }
 
 #portfolio.light {
-  --bg: white;
-}
-
-.blue-button {
-  background-color: blue;
-}
-
-.yellow-button {
-  background-color: yellow;
+  --bg: hsl(0 0% 100%);
+  /* --bg-stripes: rgba(243, 245, 175, 0.12); */
+  --bg-stripes: hsl(220 13% 91%);
+  --border: hsl(220 13% 91%);
+  --fg-text: hsl(224 71.4% 4.1%);
+  --fg-text-muted: hsl(220 8.9% 46.1%);
+  --btn-seleted-txt: hsl(224 71.4% 4.1%);
+  --btn-deseleted-txt: hsl(217.9 10.6% 64.9%);
+  --card: hsl(0 0% 100%);
+  --work-education-button-selected: hsl(0 0% 100%);
 }
 
 #portfolio {
 
   background-size: 40px 40px;
   background-color: var(--bg);
-  background-image: linear-gradient(to right, rgba(243, 245, 175, 0.12) 2px, transparent 1px),
-  linear-gradient(to bottom, rgba(243, 245, 175, 0.12) 2px, transparent 1px);
+  background-image: linear-gradient(to right, var(--bg-stripes) 2px, transparent 1px),
+  linear-gradient(to bottom, var(--bg-stripes) 2px, transparent 1px);
 
   display: flex;
   flex-direction: column;
@@ -50,12 +51,12 @@ html {
 header {
   height: 100px;
   width: 100%;
-  background-color: var(--dark-bg);
-  color: whitesmoke;
+  background-color: var(--bg);
+  color: var(--fg-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border);
 }
 
 #header-div {
@@ -80,7 +81,7 @@ main {
 }
 
 #intro-block {
-  color: whitesmoke;
+  color: var(--fg-text);
   display: flex;
   margin-top: 5vh;
   width: 100%;
@@ -114,26 +115,31 @@ main {
 }
 
 #cv-button {
-  background-color: var(--dark-bg);
+  background-color: var(--bg);
   font-size: 1rem;
-  color: whitesmoke;
-  border: 1px solid hsl(217.9 10.6% 64.9%);
+  color: var(--fg-text);
+  border: 1px solid var(--border);
   border-radius: 10px;
   width: 60px;
   height: 30px;
 }
 
 #cv-button:hover {
-  background-color: hsl(217.9 10.6% 64.9%);
+  background-color: var(--border);
   cursor: pointer;
 }
 
 .intro-social-link {
-  color: hsl(217.9 10.6% 64.9%);
+  color: var(--fg-text-muted);
 }
 
 .intro-social-link:hover {
-  color: whitesmoke;
+  color: var(--fg-text);
+}
+
+.shadow {
+  /* box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow); */
+  box-shadow: 0 0 #0000,0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 #work-education {
@@ -145,23 +151,28 @@ main {
 }
 
 #work-education-btns {
-  border: 1px solid grey;
+  border: 1px solid var(--border);
   width: 100%;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
-  background-color: grey;
+  background-color: var(--border);
   border-radius: 10px;
 }
 
 .btn-selected {
-  background-color: whitesmoke;
+  /* background-color: var(--bg); */
+  background-color: var(--work-education-button-selected);
+  color: var(--btn-selected-txt);
+  font-weight: 500; 
 }
 
 .btn-deselected {
-  background-color: grey;
+  background-color: var(--border);
+  color: var(--btn-deselected-txt);
+  font-weight: 500; 
 }
 
 #btn-work, #btn-education {
@@ -176,9 +187,9 @@ main {
   margin-top: 10px;
   padding: 20px;
   border-radius: 10px;
-  background-color: var(--dark-bg);
-  color: whitesmoke;
-  border: 1px solid grey;
+  background-color: var(--card);
+  color: var(--fg-text);
+  border: 1px solid var(--border);
   width: 100%;
   font-size: 1rem;
 }
@@ -214,11 +225,11 @@ main {
 }
 
 .work-history-period, .education-history-period {
-  color: grey;
+  color: var(--fg-text-muted);
 }
 
 .work-history-location, .education-history-location {
-  color: grey;
+  color: var(--fg-text-muted);
 }
 
 .work-history-description, .education-history-description {
@@ -240,18 +251,22 @@ main {
 }
 
 #project-section-title {
-  color: whitesmoke;
+  color: var(--fg-text);
 }
 
 .project {
-  background-color: var(--proj-bg);
-  border: 1px solid var(--border-color);
+  background-color: var(--card);
+  border: 1px solid var(--border);
   border-radius: 20px;
   width: 46%;
   padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.project a {
+  text-decoration: none;
 }
 
 #project-list {
@@ -272,23 +287,18 @@ main {
 }
 
 .project-title {
-  color: var(--primary);
+  color: var(--fg-text);
 }
 
 .project-description {
-  color: whitesmoke;
-}
-
-.project-link {
-  color: var(--secondary);
-  text-transform: uppercase;
+  color: var(--fg-text-muted);
 }
 
 footer {
   width: 100%;
   margin-top: 30px;
   padding: 10px 0;
-  border-top: 3px solid var(--border-color);
+  border-top: 3px solid var(--border);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,7 +306,7 @@ footer {
   font-size: 30px;
   position: sticky;
   bottom: 0;
-  background-color: var(--dark-bg);
+  background-color: var(--bg);
 }
 
 .footer-class {
@@ -308,9 +318,25 @@ footer {
 }
 
 .footer-link {
-  color: var(--border-color);
+  color: var(--fg-text-muted);
   opacity: 0.85;
 }
+
+.footer-link:hover {
+  color: var(--fg-text);
+  opacity: 0.85;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
