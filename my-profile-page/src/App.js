@@ -8,7 +8,7 @@ import luma from './assets/luma.png'
 import market_economics from './assets/market-economics.png'
 import chat_bubble from './assets/chat-bubble.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faDownload, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { useState, useEffect } from 'react';
 
@@ -47,11 +47,12 @@ function App() {
   useEffect(() => {
     if (isDark) {
       document.getElementById('portfolio').classList.remove('light');
+      document.getElementsByTagName('html')[0].classList='dark';
     } else {
       document.getElementById('portfolio').classList.add('light');
+      document.getElementsByTagName('html')[0].classList='light';
     }
   }, [isDark]);
-
 
   const workEducationSelector = (event) => {
 
@@ -75,8 +76,8 @@ function App() {
             <h1>Pascal Eun Sig Cheon</h1>
           </div>
           <div id='header-right'>
-            {/* <button className={isDark ? 'show-button' : 'hide-button'}>dark mode</button> */}
-            <button onClick={() => setIsDark(!isDark)} className={isDark ? 'blue-button' : 'yellow-button'}>change mode</button>
+            < FontAwesomeIcon icon={faMoon} onClick={() => setIsDark(!isDark)} className={isDark ? 'hide-icon' : 'show-icon'} />
+            < FontAwesomeIcon icon={faSun} onClick={() => setIsDark(!isDark)} className={isDark ? 'show-icon' : 'hide-icon'} />
           </div> 
         </div>
       </header>
@@ -84,7 +85,7 @@ function App() {
         <div id="intro-block">
           <div id="intro-txt">
             <h1 id="intro-hello">Hello I am a...</h1>
-            <p id="intro-study-loc">Masters software engineering student based in Paris, France</p>
+            <p id="intro-study-loc">Masters software engineering student based in Paris, France 🇫🇷</p>
             <p id="intro-ds">Former data Scientist 4+ years</p>
             <p id="intro-phd">PhD Mathematics</p>
             <div id="intro-socials">

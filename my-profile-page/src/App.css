@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  overscroll-behavior: auto;
-  background-color: var(-bg);
-}
-
 /* For colour themes */
 #portfolio {
   --bg: hsl(224 71.4% 4.1%);
@@ -35,13 +30,22 @@ html {
   --work-education-button-selected: hsl(0 0% 100%);
 }
 
+html.dark {
+  overscroll-behavior: auto;
+  background-color: hsl(224 71.4% 4.1%);
+}
+
+html.light {
+  overscroll-behavior: auto;
+  background-color: hsl(0 0% 100%);
+}
+
 #portfolio {
 
   background-size: 40px 40px;
   background-color: var(--bg);
   background-image: linear-gradient(to right, var(--bg-stripes) 2px, transparent 1px),
   linear-gradient(to bottom, var(--bg-stripes) 2px, transparent 1px);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,10 +64,19 @@ header {
 }
 
 #header-div {
-  width: 60%;
+  width: 882px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.show-icon {
+  display: inline;
+  font-size: 1.2rem;
+}
+
+.hide-icon {
+  display: none;
 }
 
 main {
@@ -73,6 +86,7 @@ main {
   justify-content: center;
   gap: 5vh;
   width: 60%;
+  width: 882px;
 }
 
 #main-header {
@@ -89,8 +103,9 @@ main {
 }
 
 #intro-img {
-  width: 15vw;  
+  width: 176.4px;  
   object-fit: cover;
+  border-radius: 10px;
 }
 
 #intro-txt {
@@ -327,7 +342,21 @@ footer {
   opacity: 0.85;
 }
 
+@media only screen and (max-width: 882px) {
+  #intro-block {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
 
+  main {
+    width: 750px;
+  }
+
+  #header-div {
+    width: 750px;
+  }
+}
 
 
 
