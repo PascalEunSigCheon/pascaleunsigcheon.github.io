@@ -1,12 +1,13 @@
 import './App.css';
 import photo from './photo.jpg'
-import resume from './assets/resume.pdf'
+import resume from './assets/cheon-cv-en.pdf'
 import uoa from './assets/uoa.png'
 import epita from './assets/epita.png'
 import fonterra from './assets/fonterra.png'
 import luma from './assets/luma.png'
 import market_economics from './assets/market-economics.png'
 import chat_bubble from './assets/chat-bubble.png'
+import space_invaders from './assets/space-invaders.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faDownload, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
@@ -162,7 +163,10 @@ function App() {
                   <div className="education-history-university">EPITA</div>
                   <div className='education-history-programme'>Master of Computer Science &middot; Software Engineering</div>
                   <div className='education-history-period'>Feb 2025 - Present</div>
-                  <div className='education-history-location'>Auckland, New Zealand</div>
+                  <div className='education-history-location'>Paris, France</div>
+                  <ul className='education-history-description'>
+                    <li>Student representative of the software engineering specialisation</li>
+                  </ul>
                 </div>
               </li>
               
@@ -214,36 +218,20 @@ function App() {
           <div id='project-list'>
             <CreateProjectCard
               proj_img={chat_bubble}
-              proj_img_alt={'Goodbye'}
+              proj_img_alt={'Cover image for the chat bubble app project'}
               proj_title={'Chat Bubble'}
               proj_desc={'Custom chat bubbles on green screen for videos'}
               proj_link={'https://pascaleunsigcheon.github.io/chat-bubble/'}
             />
             
-            {/* <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            /> */}
-            
-            {/* <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
-            /> */}
-
-            {/* <CreateProjectCard
-              proj_img={test_img}
-              proj_img_alt={'Goodbye'}
-              proj_title={'some title'}
-              proj_desc={'some description.'}
-              proj_link={'https://www.google.com'}
+            <CreateProjectCard
+              proj_img={space_invaders}
+              proj_img_alt={'Cover image for the space invaders project'}
+              proj_title={'Space Invaders'}
+              proj_desc={'Classic space invaders game built on C++ using the Raylib library'}
+              proj_link={'https://github.com/PascalEunSigCheon/space-invaders-raylib'}
             />
-             */}
+
           </div>
         </div>
 
