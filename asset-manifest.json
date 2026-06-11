@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.7cda6bdc.css",
-    "main.js": "/static/js/main.0b08e0e9.js",
-    "static/js/453.5e59963c.chunk.js": "/static/js/453.5e59963c.chunk.js",
+    "main.js": "/static/js/main.0b6b9776.js",
+    "static/js/453.90366df9.chunk.js": "/static/js/453.90366df9.chunk.js",
     "static/media/photo.jpg": "/static/media/photo.3344851bbfe3659d62b6.jpg",
     "static/media/cheon-cv-en.pdf": "/static/media/cheon-cv-en.6122f49b1cbc259672bb.pdf",
     "static/media/uoa.png": "/static/media/uoa.970a024e6c84b920a186.png",
+    "static/media/bouyguestelecom.png": "/static/media/bouyguestelecom.983d7c5204845b9d9074.png",
     "static/media/fonterra.png": "/static/media/fonterra.9d953a2300aa39fea2ab.png",
     "static/media/chat-bubble.png": "/static/media/chat-bubble.801be5f2728d9e013468.png",
     "static/media/market-economics.png": "/static/media/market-economics.5de8ae75f07c10239ba3.png",
     "index.html": "/index.html",
     "main.7cda6bdc.css.map": "/static/css/main.7cda6bdc.css.map",
-    "main.0b08e0e9.js.map": "/static/js/main.0b08e0e9.js.map",
-    "453.5e59963c.chunk.js.map": "/static/js/453.5e59963c.chunk.js.map"
+    "main.0b6b9776.js.map": "/static/js/main.0b6b9776.js.map",
+    "453.90366df9.chunk.js.map": "/static/js/453.90366df9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda6bdc.css",
-    "static/js/main.0b08e0e9.js"
+    "static/js/main.0b6b9776.js"
   ]
 }
