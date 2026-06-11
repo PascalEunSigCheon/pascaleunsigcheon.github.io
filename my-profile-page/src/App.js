@@ -4,14 +4,15 @@ import resume from './assets/cheon-cv-en.pdf'
 import uoa from './assets/uoa.png'
 import epita from './assets/epita.png'
 import fonterra from './assets/fonterra.png'
+import bouyguestelecom from './assets/bouyguestelecom.png'
 import luma from './assets/luma.png'
 import market_economics from './assets/market-economics.png'
 import chat_bubble from './assets/chat-bubble.png'
 import space_invaders from './assets/space-invaders.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faDownload, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react';
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 function CreateProjectCard({proj_img, proj_img_alt, proj_title, proj_desc, proj_link}) {
   return(
@@ -90,11 +91,11 @@ function App() {
             <p id="intro-ds">Former data Scientist 4+ years</p>
             <p id="intro-phd">PhD Mathematics</p>
             <div id="intro-socials">
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href={resume}><button id="cv-button">CV < FontAwesomeIcon icon={faDownload} /></button></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/pascal-cheon/">< FontAwesomeIcon icon={faLinkedin} /></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://github.com/PascalEunSigCheon'>< FontAwesomeIcon icon={faGithub} /></a>
-              <a className='intro-social-link' target='_blank' rel="noopener noreferrer" title="Email" href='mailto:pascal.cheon@protonmail.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
-              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.youtube.com/@pascal_esc'>< FontAwesomeIcon icon={faYoutube} /></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href={resume}><button id="cv-button">CV <FaDownload/></button></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/pascal-cheon/"><FaLinkedin/></a>
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://github.com/PascalEunSigCheon'><FaGithub/></a>
+              <a className='intro-social-link' target='_blank' rel="noopener noreferrer" title="Email" href='mailto:pascal.cheon@protonmail.com'><FaEnvelope/></a> 
+              <a className='intro-social-link' target='_blank' rel="noreferrer" href='https://www.youtube.com/@pascal_esc'><FaYoutube/></a>
             </div>
           </div>
           <img id="intro-img" src={photo} alt="myself" width='50px'></img>
@@ -252,10 +253,10 @@ function App() {
 
       </main>
       <footer className={scrolled ? 'footer-class-scrolled' : 'footer-class'}>
-        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faLinkedin} /></a>
-        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faGithub} /></a>
-        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faEnvelope} /></a>
-        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.google.com'>< FontAwesomeIcon icon={faYoutube} /></a>
+        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/pascal-cheon/'><FaLinkedin/></a>
+        <a className='footer-link' target='_blank' rel="noreferrer" href='https://github.com/PascalEunSigCheon'><FaGithub/></a>
+        <a className='footer-link' target='_blank' rel="noopener noreferrer" title="Email" href='mailto:pascal.cheon@protonmail.com'><FaEnvelope/></a> 
+        <a className='footer-link' target='_blank' rel="noreferrer" href='https://www.youtube.com/@pascal_esc'><FaYoutube/></a>
       </footer>
     </div>
   );
