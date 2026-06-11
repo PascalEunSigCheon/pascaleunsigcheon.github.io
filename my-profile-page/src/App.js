@@ -110,6 +110,21 @@ function App() {
             <ul className={ulStyleWork}>
 
               <li className="li-work-history">
+                <a target='_blank' rel="noreferrer" href="https://www.bouyguestelecom.fr/"><img className="work-history-img" src={bouyguestelecom} alt="bouygues telecom logo"></img></a>
+                <div className='work-history-info'>
+                  <div className="work-history-title">Developer</div>
+                  <div className='work-history-company'>Bouygues Telecom &middot; Internship</div>
+                  <div className='work-history-period'>Mar 2026 - Present &middot; 4 mos</div>
+                  <div className='work-history-location'>Paris, France</div>
+                  <ul className='work-history-description'>
+                    <li>Led the complete modernization of a legacy dashboard platform using Next.js, React, TypeScript, Tailwind CSS, NestJS, and MongoDB.</li>
+                    <li>Migrated the application to a cloud infrastructure, improving scalability and reliability.</li>
+                    <li>Designed and enhanced reporting features to streamline report generation and improve operational efficiency.</li>
+                  </ul>
+                </div>
+              </li>
+
+              <li className="li-work-history">
                 <a target='_blank' rel="noreferrer" href="https://www.fonterra.com/nz/en.html"><img className="work-history-img" src={fonterra} alt="fonterra logo"></img></a>
                 <div className='work-history-info'>
                   <div className="work-history-title">Data Scientist</div>
